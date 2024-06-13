@@ -10,11 +10,24 @@
   <body>
 
     <nav class="navbar shadow-lg bg-warning w-100 ">
+
+      <ul class="nav nav-pills nav-fill mx-3">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Images</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Videos</a>
+        </li>
+        
+      </ul>
+
         <div class="container-fluid form-control bg-transparent border-0">
           <form class="d-flex form-control bg-transparent border-0" role="search">
             <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
           </form>
         </div>
+
       </nav>
 
 
@@ -36,12 +49,15 @@
     </style>
 
 
-      <div class="card-body d-flex justify-content-evenly flex-wrap " id="videobox">
-        <div class="card shadow-lg m-2 main position-relative" >
-            <a   download="/download (2).mp4" class="text-dark position-absolute top-0 start-0 btn btn-light m-1 z-index-10">Download</a>
-            <video class="rounded" controls src="./Video/42550493_20240610_192130.mp4"></video>
-        </div>
+      
+      <div class="card-body d-flex justify-content-evenly flex-wrap " id="imagebox">
+          
+      </div>
         
+
+      <div class="card-body d-flex justify-content-evenly flex-wrap " id="videobox">
+      </div>
+
         
         
       </div>
@@ -53,15 +69,33 @@
         let videobox = document.getElementById('videobox');
         let strbox = ""
 
+        let imagebox = document.getElementById('imagebox');
+
         for (let index = 0; index <20; index++) {
 
                 strbox+= `<div class="card shadow-lg m-2 main position-relative" >
-                    <a   download="video_${index+1}.mp4" class="text-dark position-absolute top-0 start-0 btn btn-light m-1 z-index-10">Download</a>
+                    <a href="./image/image_${index+1}.png"   download="image_${index+1}.png" class="text-dark position-absolute top-0 start-0 btn btn-light m-1 z-index-10">Download</a>
+                    <img class="rounded" controls src="./image/image_${index+1}.png"/>
+                    </div>`
+            }
+
+        imagebox.innerHTML = strbox;
+
+        strbox = ""
+
+
+        for (let index = 0; index <20; index++) {
+
+                strbox+= `<div class="card shadow-lg m-2 main position-relative" >
+                    <a   download="video_${index+1}.mp4" href="./video/video_${index+1}.mp4"  class="text-dark position-absolute top-0 start-0 btn btn-light m-1 z-index-10">Download</a>
                     <video class="rounded" controls src="./Video/video_${index+1}.mp4"></video>
                     </div>`
             }
 
         videobox.innerHTML = strbox;
+
+
+        
 
     </script>
 
